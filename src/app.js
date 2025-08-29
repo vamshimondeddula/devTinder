@@ -1,14 +1,21 @@
 const express = require ("express");
  const app = express();
 
-app.get("/",(req,res)=>{
-    res.send("hello world");
+app.get("/user",(req,res)=>{
+    res.send({firstName:"Akshay",lastName:"vamshi"});
 })
 
-app.get("/test",(req,res)=>{
-    res.send("im tested");
+app.post("/user",(req,res)=>{
+    res.send("data successfully saved to the database");
 })
 
+app.delete("/user",(req,res)=>{
+    res.send("deleted");
+})
+
+app.use("/test",(req,res)=>{
+    res.send("hello from the server")
+})
  app.listen(3000,()=>
 console.log("connection established")
 );
